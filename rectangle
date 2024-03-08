@@ -1,0 +1,26 @@
+import cv2
+import numpy as np
+
+def draw_rectangle(width, height):
+    # Create a white image
+    white_image = np.ones((height, width, 3), dtype=np.uint8) * 255
+
+    # Draw a rectangle on the white image
+    start_point = (int(width * 0.25), int(height * 0.25))  # Starting point of the rectangle
+    end_point = (int(width * 0.75), int(height * 0.75))    # Ending point of the rectangle
+    color = (0, 0, 255)  # Red color in BGR format
+    thickness = 2        # Thickness of the rectangle border
+
+    rectangle_image = cv2.rectangle(white_image, start_point, end_point, color, thickness)
+
+    # Display the image with the rectangle
+    cv2.imshow('Rectangle Image', rectangle_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+# Get user input for image size
+width = int(input("Enter the width of the image: "))
+height = int(input("Enter the height of the image: "))
+
+# Call the function to create and draw rectangle on the white image
+draw_rectangle(width, height)
